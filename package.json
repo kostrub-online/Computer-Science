@@ -1,0 +1,25 @@
+{
+  "name": "computer-science",
+  "version": "1.0.0",
+  "description": "Базові структури даних та алгоритми",
+  "main": "index.ts",
+  "scripts": {
+    "test": "ts-node node_modules/jasmine/bin/jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostrub-online/Computer-Science.git"
+  },
+  "author": "kostrub.online",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kostrub-online/Computer-Science/issues"
+  },
+  "homepage": "https://github.com/kostrub-online/Computer-Science#readme",
+  "dependencies": {
+    "@types/jasmine": "^3.5.10",
+    "jasmine": "^3.5.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
