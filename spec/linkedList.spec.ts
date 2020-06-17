@@ -151,12 +151,22 @@ describe('LinkedList', () => {
                 .add('three')
                 .add('two')
                 .add('one');
-            expect(linkedList.getNode(0).next).toBeDefined();
-            expect(linkedList.getNode(0).prev).toBeUndefined();
-            expect(linkedList.getNode(1).next).toBeDefined();
-            expect(linkedList.getNode(1).prev).toBeDefined();
-            expect(linkedList.getNode(2).next).toBeUndefined();
-            expect(linkedList.getNode(2).prev).toBeDefined();
+            const item0 = linkedList.getNode(0);
+            const item1 = linkedList.getNode(1);
+            const item2 = linkedList.getNode(2);
+            expect(item0.next).toBeDefined();
+            expect(item0.prev).toBeUndefined();
+            expect(item0.value).toBe('one');
+            expect(item0.next.value).toBe('two');
+            expect(item1.next).toBeDefined();
+            expect(item1.prev).toBeDefined();
+            expect(item1.value).toBe('two');
+            expect(item1.next.value).toBe('three');
+            expect(item1.prev!.value).toBe('one');
+            expect(item2.next).toBeUndefined();
+            expect(item2.prev).toBeDefined();
+            expect(item2.value).toBe('three');
+            expect(item2.prev!.value).toBe('two');
         });
 
     });
