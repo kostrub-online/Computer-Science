@@ -70,8 +70,12 @@ class LinkedList {
     // O(n) -> n
     remove(index: number): LinkedList {
         if(index === 0) {
-            this.head = undefined;
-            this.length = 0;
+            if(this.head) {
+                this.head = this.head.next;
+                this.length -= 1;
+            } else {
+                this.clear();
+            }
         } else {
             const prevItem = this.getNode(--index);
             if(prevItem) {
@@ -84,7 +88,9 @@ class LinkedList {
 
     // O(n) -> 1
     clear(): LinkedList {
-        return this.remove(0);
+        this.head = undefined;
+        this.length = 0;
+        return this;
     }
 
     // Note: Рекурсивний метод O(n) -> n

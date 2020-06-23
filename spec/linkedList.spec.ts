@@ -60,21 +60,25 @@ describe('LinkedList', () => {
     it('should remove item', () => {
         const linkedList = new LinkedList();
         linkedList
+            .add('four')
             .add('three')
             .add('two')
             .add('one')
             .remove(1);
-        expect(linkedList.length).toBe(2);  
-        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three'}}); 
+        expect(linkedList.length).toBe(3);  
+        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three', next: {value: 'four'}}}); 
         linkedList.remove(99);
-        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three'}});
+        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three', next: {value: 'four'}}});
         linkedList.remove(-1);
-        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three'}});
+        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'three', next: {value: 'four'}}});
         linkedList.remove(1);
-        expect(linkedList.toJSON()).toEqual({value: 'one'});
+        expect(linkedList.toJSON()).toEqual({value: 'one', next: {value: 'four'}});
+        expect(linkedList.length).toBe(2);  
+        linkedList.remove(0);
+        expect(linkedList.toJSON()).toEqual({value: 'four'});
         expect(linkedList.length).toBe(1);  
         linkedList.remove(0);
-        expect(linkedList.toJSON()).toEqual({});  
+        expect(linkedList.toJSON()).toEqual({});
         expect(linkedList.length).toBe(0);  
     });
 
